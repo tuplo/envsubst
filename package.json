@@ -6,7 +6,9 @@
   "author": "Tuplo <dev@tuplo.co.uk>",
   "license": "MIT",
   "keywords": [
-    "date"
+    "envsubst",
+    "environment",
+    "variables"
   ],
   "files": [
     "lib/**/*"
