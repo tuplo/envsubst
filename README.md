@@ -1,9 +1,6 @@
 # envsubst
 
 <p>
-  <a href="https://github.com/tuplo/envsubst/actions">
-    <img src="https://github.com/tuplo/envsubst/workflows/Build/badge.svg" alt="Build">
-  </a>
   <img src="https://packagephobia.now.sh/badge?p=@tuplo/envsubst">
   <img src="https://david-dm.org/tuplo/envsubst.svg">
 </p>
