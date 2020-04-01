@@ -2,7 +2,7 @@
 const varnames = '[a-zA-Z_]+[a-zA-Z0-9_]*';
 const placeholders = ['\\$_', '\\${_}', '{{_}}'];
 const envvars = placeholders
-  .map(placeholder => placeholder.replace(`_`, `(${varnames})`))
+  .map((placeholder) => placeholder.replace(`_`, `(${varnames})`))
   .join(`|`);
 const rgEnvvars = new RegExp(envvars, `g`);
 
@@ -18,7 +18,7 @@ const envsubst: EnvsubstFn = (input, shellFormat) => {
   const match = [...input.matchAll(new RegExp(rgEnvvars, `g`))];
   if (!match) return input;
   return match
-    .map(m => {
+    .map((m) => {
       const [varInput, varname] = m
         .slice(0, placeholders.length + 1)
         .filter(Boolean);
