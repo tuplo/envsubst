@@ -5,10 +5,10 @@
     "downlevelIteration": true,
     "esModuleInterop": true,
     "lib": ["ES2020"],
-    "module": "CommonJS",
+    "module": "ES6",
     "moduleResolution": "node",
     "outDir": "./lib",
-    "target": "es5",
+    "target": "es6",
     "strict": true
   },
   "include": ["src/**/*"],

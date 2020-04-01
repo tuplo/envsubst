@@ -1,6 +1,6 @@
 /* eslint no-template-curly-in-string:off */
 /* eslint @typescript-eslint/camelcase:off */
-import envsubst, { includeVariable } from '.';
+import envsubst from '.';
 
 describe(`envsubst`, () => {
   const oldEnv = process.env;
@@ -76,22 +76,6 @@ describe(`envsubst`, () => {
     const expected = ['false  0 null []', 'false $ENV_VAR6'];
     inputs.forEach((input, i) => {
       const result = envsubst(input);
-      expect(result).toStrictEqual(expected[i]);
-    });
-  });
-
-  it(`decides if a variable should be replaced by reading a shellFormat`, () => {
-    expect.assertions(5);
-    const inputs = [
-      ['$ENV_VAR1', '$ENV_VAR1'],
-      ['$ENV_VAR1', '$ENV_VAR2'],
-      ['', '$ENV_VAR1'],
-      [undefined, '$ENV_VAR1'],
-      ['${ENV_VAR1}', '$ENV_VAR1'],
-    ];
-    const expected = [true, false, false, true, false];
-    inputs.forEach(([shellFormat, varname], i) => {
-      const result = includeVariable(shellFormat, varname as string);
       expect(result).toStrictEqual(expected[i]);
     });
   });

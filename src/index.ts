@@ -1,17 +1,12 @@
 /* eslint no-template-curly-in-string:off */
+import includeVariable from './include-variable';
+
 const varnames = '[a-zA-Z_]+[a-zA-Z0-9_]*';
 const placeholders = ['\\$_', '\\${_}', '{{_}}'];
 const envvars = placeholders
   .map((placeholder) => placeholder.replace(`_`, `(${varnames})`))
   .join(`|`);
 const rgEnvvars = new RegExp(envvars, `g`);
-
-type IncludeVariableFn = (
-  shellFormat: string | undefined,
-  varname: string
-) => boolean;
-export const includeVariable: IncludeVariableFn = (shellFormat, varname) =>
-  typeof shellFormat === `undefined` || shellFormat.indexOf(varname) > -1;
 
 type EnvsubstFn = (input: string, shellFormat?: string) => string;
 const envsubst: EnvsubstFn = (input, shellFormat) => {
