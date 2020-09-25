@@ -1,8 +1,8 @@
 type IncludeVariableFn = (
   shellFormat: string | undefined,
-  varname: string
+  varName: string
 ) => boolean;
-const includeVariable: IncludeVariableFn = (shellFormat, varname) =>
-  typeof shellFormat === `undefined` || shellFormat.indexOf(varname) > -1;
+const includeVariable: IncludeVariableFn = (shellFormat, varName) =>
+  typeof shellFormat === `undefined` || shellFormat.indexOf(varName) > -1;
 
 export default includeVariable;

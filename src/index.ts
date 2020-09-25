@@ -1,26 +1,26 @@
 /* eslint no-template-curly-in-string:off */
 import includeVariable from './include-variable';
 
-const varnames = '[a-zA-Z_]+[a-zA-Z0-9_]*';
+const varNames = '[a-zA-Z_]+[a-zA-Z0-9_]*';
 const placeholders = ['\\$_', '\\${_}', '{{_}}'];
-const envvars = placeholders
-  .map((placeholder) => placeholder.replace(`_`, `(${varnames})`))
+const envVars = placeholders
+  .map((placeholder) => placeholder.replace(`_`, `(${varNames})`))
   .join(`|`);
-const rgEnvvars = new RegExp(envvars, `g`);
+const rgEnvVars = new RegExp(envVars, `g`);
 
 type EnvsubstFn = (input: string, shellFormat?: string) => string;
 const envsubst: EnvsubstFn = (input, shellFormat) => {
-  const match = [...input.matchAll(new RegExp(rgEnvvars, `g`))];
+  const match = [...input.matchAll(new RegExp(rgEnvVars, `g`))];
   if (!match) return input;
   return match
     .map((m) => {
-      const [varInput, varname] = m
+      const [varInput, varName] = m
         .slice(0, placeholders.length + 1)
         .filter(Boolean);
       const value =
-        typeof process.env[varname] === `undefined`
+        typeof process.env[varName] === 'undefined'
           ? varInput
-          : process.env[varname];
+          : process.env[varName];
       return [varInput, value];
     })
     .filter(([varInput]) => varInput && includeVariable(shellFormat, varInput))
