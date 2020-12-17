@@ -1,20 +1,14 @@
 # envsubst
 
 <p>
-  <img src="https://packagephobia.now.sh/badge?p=@tuplo/envsubst">
-  <img src="https://david-dm.org/tuplo/envsubst.svg">
+  <img src="https://img.shields.io/npm/v/@tuplo/envsubst">
+  <a href="https://codecov.io/gh/tuplo/envsubst">
+    <img src="https://codecov.io/gh/tuplo/envsubst/branch/master/graph/badge.svg?token=PJURSSTS07"/>
+  </a>
+  <img src="https://github.com/tuplo/envsubst/workflows/Release/badge.svg">
 </p>
 
-Substitutes the values of environment variables. Based on [GNU envsubst](https://www.gnu.org/software/gettext/manual/html_node/index.html).
-
-## Install
-
-```bash
-$ npm install @tuplo/envsubst
-
-# or with yarn
-$ yarn add @tuplo/envsubst
-```
+> Substitutes the values of environment variables. Based on [GNU envsubst](https://www.gnu.org/software/gettext/manual/html_node/index.html).
 
 ## Usage
 
@@ -37,7 +31,7 @@ envsubst('foo={{ENV_VAR1}}'); // → foo=bar
 **If `shellFormat` is present, replaces only those variables**
 
 ```ts
-process.env = { ENV_VAR1: `bar`, ENV_VAR2: `baz` };
+process.env = { ENV_VAR1: 'bar', ENV_VAR2: 'baz' };
 
 envsubst('$ENV_VAR1 $ENV_VAR2', '$ENV_VAR2'); // → $ENV_VAR1 baz
 ```
@@ -53,6 +47,15 @@ A string with references to environment variables of the form `$VARIABLE`, `${VA
 #### shellFormat: string
 
 The output consists of the environment variables that are referenced in `shellFormat`.
+
+## Install
+
+```bash
+$ npm install @tuplo/envsubst
+
+# or with yarn
+$ yarn add @tuplo/envsubst
+```
 
 ## Contribute
 

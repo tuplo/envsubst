@@ -3,6 +3,6 @@ type IncludeVariableFn = (
   varName: string
 ) => boolean;
 const includeVariable: IncludeVariableFn = (shellFormat, varName) =>
-  typeof shellFormat === `undefined` || shellFormat.indexOf(varName) > -1;
+  typeof shellFormat === 'undefined' || shellFormat.indexOf(varName) > -1;
 
 export default includeVariable;

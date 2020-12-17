@@ -4,13 +4,13 @@ import includeVariable from './include-variable';
 const varNames = '[a-zA-Z_]+[a-zA-Z0-9_]*';
 const placeholders = ['\\$_', '\\${_}', '{{_}}'];
 const envVars = placeholders
-  .map((placeholder) => placeholder.replace(`_`, `(${varNames})`))
-  .join(`|`);
-const rgEnvVars = new RegExp(envVars, `g`);
+  .map((placeholder) => placeholder.replace('_', `(${varNames})`))
+  .join('|');
+const rgEnvVars = new RegExp(envVars, 'g');
 
 type EnvsubstFn = (input: string, shellFormat?: string) => string;
 const envsubst: EnvsubstFn = (input, shellFormat) => {
-  const match = [...input.matchAll(new RegExp(rgEnvVars, `g`))];
+  const match = [...input.matchAll(new RegExp(rgEnvVars, 'g'))];
   if (!match) return input;
   return match
     .map((m) => {
@@ -25,7 +25,7 @@ const envsubst: EnvsubstFn = (input, shellFormat) => {
     })
     .filter(([varInput]) => varInput && includeVariable(shellFormat, varInput))
     .reduce(
-      (acc, [varInput = ``, value = ``]) => acc.replace(varInput, value),
+      (acc, [varInput = '', value = '']) => acc.replace(varInput, value),
       input
     );
 };

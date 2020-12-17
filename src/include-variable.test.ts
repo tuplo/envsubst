@@ -9,7 +9,7 @@ describe('include variable', () => {
     [undefined, '$ENV_VAR1', true],
     ['${ENV_VAR1}', '$ENV_VAR1', false],
   ])(
-    `decides if a variable should be replaced by reading a shellFormat - %s`,
+    'decides if a variable should be replaced by reading a shellFormat - %s',
     (shellFormat, varName, expected) => {
       const result = includeVariable(shellFormat, varName);
       expect(result).toStrictEqual(expected);
