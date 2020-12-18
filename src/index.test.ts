@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint no-template-curly-in-string:off */
 import envsubst from '.';
 
