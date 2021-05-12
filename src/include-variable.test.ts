@@ -11,6 +11,7 @@ describe('include variable', () => {
   ])(
     'decides if a variable should be replaced by reading a shellFormat - %s',
     (shellFormat, varName, expected) => {
+      expect.assertions(1);
       const result = includeVariable(shellFormat, varName);
       expect(result).toStrictEqual(expected);
     }
