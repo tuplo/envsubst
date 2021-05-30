@@ -1,0 +1,8 @@
+{
+  "transform": {
+    "^.+\\.[jt]s$": "ts-jest"
+  },
+  "moduleNameMapper": {
+    "envsubst$": "<rootDir>/node_modules/@tuplo/envsubst/cjs"
+  }
+}
