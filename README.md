@@ -2,8 +2,11 @@
 
 <p>
   <img src="https://img.shields.io/npm/v/@tuplo/envsubst">
-  <a href="https://codecov.io/gh/tuplo/envsubst">
-    <img src="https://codecov.io/gh/tuplo/envsubst/branch/master/graph/badge.svg?token=PJURSSTS07"/>
+  <a href="https://codeclimate.com/github/tuplo/envsubst/maintainability">
+    <img src="https://api.codeclimate.com/v1/badges/69839856839741fd2133/maintainability" />
+  </a>
+  <a href="https://codeclimate.com/github/tuplo/envsubst/test_coverage">
+    <img src="https://api.codeclimate.com/v1/badges/69839856839741fd2133/test_coverage" />
   </a>
   <img src="https://github.com/tuplo/envsubst/workflows/Release/badge.svg">
 </p>

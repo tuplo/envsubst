@@ -43,6 +43,7 @@
     "eslint-plugin-import": "2.23.4",
     "eslint-plugin-jest": "24.3.6",
     "jest": "27.0.3",
+    "nyc": "15.1.0",
     "prettier": "2.3.0",
     "rimraf": "3.0.2",
     "ts-jest": "27.0.1",
@@ -50,8 +51,8 @@
   },
   "scripts": {
     "build": "bash ./scripts/build.sh",
-    "ci:test:coverage": "jest --ci --coverage",
     "ci:test": "jest --ci",
+    "ci:test:coverage": "bash ./scripts/coverage.sh",
     "lint": "eslint src --ext ts",
     "test": "jest --watch",
     "ts-check": "tsc --noEmit"
@@ -63,7 +64,14 @@
     "transform": {
       "^.+\\.(t|j)sx?$": "ts-jest"
     },
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "collectCoverage": true,
+    "coverageReporters": [
+      "lcov"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}"
+    ]
   },
   "eslintConfig": {
     "extends": [
