@@ -21,7 +21,7 @@
     ".": [
       {
         "import": "./dist/index.js",
-        "require": "./cjs/index.cjs",
+        "require": "./cjs/index.js",
         "default": "./dist/index.js"
       },
       "./dist/index.js"
