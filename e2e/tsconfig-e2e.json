@@ -1,0 +1,6 @@
+{
+  "compilerOptions": {
+    "outDir": "ts-compiled"
+  },
+  "files": ["./main-ts"],
+}
