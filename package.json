@@ -11,18 +11,18 @@
     "variables"
   ],
   "files": [
+    "dist/index.mjs",
     "cjs/index.js",
-    "dist/index.js",
     "dist/index.d.ts"
   ],
-  "type": "module",
-  "main": "./dist/index.js",
+  "main": "./cjs/index.js",
+  "module": "./dist/index.mjs",
   "exports": {
     ".": [
       {
-        "import": "./dist/index.js",
+        "import": "./dist/index.mjs",
         "require": "./cjs/index.js",
-        "default": "./dist/index.js"
+        "default": "./cjs/index.js"
       },
       "./dist/index.js"
     ]
