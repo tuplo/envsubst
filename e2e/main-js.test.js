@@ -1,4 +1,4 @@
-import { testEnvsubst } from './main-js';
+import { testEnvsubst } from './main-js.mjs';
 
 describe('envsubst', () => {
   const oldEnv = process.env;

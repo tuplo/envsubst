@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "outDir": "ts-compiled",
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+  },
+  "files": ["./main-ts"],
+  "types": ["jest", "node"]
+}
