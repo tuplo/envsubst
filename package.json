@@ -31,87 +31,32 @@
   "engines": {
     "node": ">=12"
   },
-  "devDependencies": {
-    "@types/jest": "27.4.1",
-    "@types/node": "17.0.23",
-    "@typescript-eslint/eslint-plugin": "5.17.0",
-    "@typescript-eslint/parser": "5.17.0",
-    "esbuild": "0.14.28",
-    "eslint": "8.12.0",
-    "eslint-config-airbnb-base": "15.0.0",
-    "eslint-config-prettier": "8.5.0",
-    "eslint-plugin-import": "2.25.4",
-    "eslint-plugin-jest": "26.1.3",
-    "jest": "27.5.1",
-    "nyc": "15.1.0",
-    "prettier": "2.6.1",
-    "rimraf": "3.0.2",
-    "ts-jest": "27.1.4",
-    "typescript": "4.6.3"
-  },
   "scripts": {
-    "build": "bash ./sh/build.sh",
+    "build": "tsx ./sh/build.ts",
+    "format": "prettier --write src sh",
     "lint:ts": "tsc --noEmit",
     "lint": "eslint src --ext ts",
-    "test:ci:coverage": "bash ./sh/coverage.sh",
+    "coverage": "tsx ./sh/coverage.ts",
     "test:ci": "jest --ci",
     "test": "jest --watch"
   },
-  "jest": {
-    "roots": [
-      "<rootDir>/src"
-    ],
-    "transform": {
-      "^.+\\.(t|j)sx?$": "ts-jest"
-    },
-    "testEnvironment": "node",
-    "collectCoverage": true,
-    "coverageReporters": [
-      "lcov"
-    ],
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}"
-    ]
-  },
-  "eslintConfig": {
-    "extends": [
-      "airbnb-base",
-      "prettier",
-      "plugin:@typescript-eslint/recommended",
-      "plugin:import/typescript",
-      "plugin:jest/all"
-    ],
-    "parser": "@typescript-eslint/parser",
-    "plugins": [
-      "@typescript-eslint",
-      "jest"
-    ],
-    "parserOptions": {
-      "ecmaVersion": 9,
-      "project": "./tsconfig.json"
-    },
-    "env": {
-      "node": true,
-      "jest": true
-    },
-    "rules": {
-      "import/extensions": 0,
-      "jest/no-hooks": "off"
-    },
-    "overrides": [
-      {
-        "files": [
-          "**/*.ts"
-        ],
-        "rules": {
-          "no-undef": "off"
-        }
-      }
-    ]
-  },
-  "prettier": {
-    "singleQuote": true,
-    "trailingComma": "es5",
-    "printWidth": 80
+  "devDependencies": {
+    "@types/jest": "29.2.3",
+    "@types/node": "18.11.9",
+    "@typescript-eslint/eslint-plugin": "5.45.0",
+    "@typescript-eslint/parser": "5.45.0",
+    "esbuild": "0.15.16",
+    "eslint": "8.28.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-jest": "27.1.6",
+    "jest": "29.3.1",
+    "nyc": "15.1.0",
+    "prettier": "2.8.0",
+    "ts-jest": "29.0.3",
+    "tsx": "3.12.1",
+    "typescript": "4.9.3",
+    "zx": "7.1.1"
   }
 }
