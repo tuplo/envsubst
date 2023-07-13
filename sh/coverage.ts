@@ -1,11 +1,14 @@
-import "zx/globals";
+import shell from "@tuplo/shell";
 
 async function main() {
+	const $ = shell.$({ verbose: true });
+
 	await $`rm -rf ./node_modules/.cache`;
 	await $`rm -rf coverage/`;
 	await $`rm -rf .nyc_output/`;
 
-	await $`NODE_ENV=test LOG_LEVEL=silent nyc yarn test:ci`;
+	const flags = ["--coverage true"];
+	await $`NODE_ENV=test LOG_LEVEL=silent nyc yarn test:ci ${flags}`;
 }
 
 main();
