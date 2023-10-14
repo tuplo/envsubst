@@ -8,8 +8,7 @@ const envVars = placeholders
 	.join("|");
 const rgEnvVars = new RegExp(envVars, "gm");
 
-type EnvsubstFn = (input: string, shellFormat?: string) => string;
-const envsubst: EnvsubstFn = (input, shellFormat) => {
+function envsubst(input: string, shellFormat?: string) {
 	const match = input.matchAll(rgEnvVars);
 	if (!match) return input;
 
@@ -31,6 +30,6 @@ const envsubst: EnvsubstFn = (input, shellFormat) => {
 			(acc, [varInput = "", value = ""]) => acc.replace(varInput, value),
 			input
 		);
-};
+}
 
 export default envsubst;
