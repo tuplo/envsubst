@@ -15,10 +15,10 @@ jobs:
       - uses: actions/cache@v1
         with:
           path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
-      - run: yarn --frozen-lockfile
-      - run: yarn lint
-      - run: yarn test:ci
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run test:ci
 
   test-coverage:
     needs: test
@@ -32,13 +32,13 @@ jobs:
       - uses: actions/cache@v1
         with:
           path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
       - run: yarn install --frozen-lockfile
       - uses: paambaati/codeclimate-action@v2.7.2
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
-          coverageCommand: yarn coverage
+          coverageCommand: npm run coverage
           debug: true
 
   publish-to-npm:
@@ -53,9 +53,9 @@ jobs:
       - uses: actions/cache@v1
         with:
           path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
-      - run: yarn --frozen-lockfile
-      - run: yarn build
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+      - run: npm ci
+      - run: npm run build
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@main
         with:
